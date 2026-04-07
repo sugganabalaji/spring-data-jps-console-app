@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sId;
 
     @Column(length = 50)

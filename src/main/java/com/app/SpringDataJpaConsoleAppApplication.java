@@ -17,14 +17,17 @@ public class SpringDataJpaConsoleAppApplication {
 		StudentRepository repository = context.getBean(StudentRepository.class);
 
 		Student s1 = context.getBean(Student.class);
+		s1.setSId(1);
 		s1.setSName("Balaji");
-		s1.setMarks(50);
+		s1.setMarks(60);// earlier 50
 
 		Student s2 = context.getBean(Student.class);
+		s2.setSId(2);
 		s2.setSName("Rudvik");
 		s2.setMarks(70);
 
 		Student s3 = context.getBean(Student.class);
+		s3.setSId(3);
 		s3.setSName("Vasundhara");
 		s3.setMarks(80);
 
@@ -42,12 +45,18 @@ public class SpringDataJpaConsoleAppApplication {
         // studentOptional.ifPresent(System.out::println);
 
 		// JPQL custom query
-		List<Student> students = repository.findByName("Balaji");
-		students.forEach(System.out::println);
+		// List<Student> students = repository.findByName("Balaji");
+		// students.forEach(System.out::println);
 
 		// JPQL  In built query
-		repository.findByMarks(75).forEach(System.out::println);
-		repository.findByMarksGreaterThanEqual(80).forEach(System.out::println);
+		// repository.findByMarks(75).forEach(System.out::println);
+		// repository.findByMarksGreaterThanEqual(80).forEach(System.out::println);
+
+		// save() is used to update the student (s1)
+		Student updated = repository.save(s1);
+		System.out.println(updated);
+
+		repository.delete(s3);
 
 
 	}
