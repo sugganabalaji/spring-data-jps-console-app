@@ -1,18 +1,24 @@
 package com.app.model;
 
+import jakarta.persistence.*;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
 @Scope("prototype")
+@Entity
 public class Student {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sId;
+
+    @Column(length = 50)
     private String sName;
     private int marks;
 
     public Student() {
-        System.out.println("Student object created");
+        // System.out.println("Student object created");
     }
 
     public int getSId() {
