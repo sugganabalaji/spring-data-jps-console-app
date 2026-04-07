@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: spring-data-jpa-console-app
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Dev
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # options: none, validate, update, create, create-drop
+    show-sql: true
+
+
+
